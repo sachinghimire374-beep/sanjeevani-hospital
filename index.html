@@ -1,183 +1,291 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sanjeevani Hospital Pvt. Ltd.</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Inter',sans-serif;
-}
-body{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:#07131f;
-    overflow:hidden;
-    position:relative;
-}
-/* Animated Background */
-body::before{
-    content:"";
-    position:absolute;
-    width:500px;
-    height:500px;
-    background:#76c043;
-    border-radius:50%;
-    filter:blur(180px);
-    opacity:.15;
-    top:-100px;
-    left:-100px;
-}
-body::after{
-    content:"";
-    position:absolute;
-    width:450px;
-    height:450px;
-    background:#0b5d7a;
-    border-radius:50%;
-    filter:blur(180px);
-    opacity:.2;
-    bottom:-120px;
-    right:-120px;
-}
-/* Glass Card */
-.container{
-    position:relative;
-    z-index:10;
-    width:90%;
-    max-width:800px;
-    padding:50px;
-    text-align:center;
-    background:rgba(255,255,255,0.05);
-    backdrop-filter:blur(20px);
-    border:1px solid rgba(255,255,255,0.1);
-    border-radius:24px;
-    box-shadow:
-    0 0 40px rgba(118,192,67,.15),
-    0 0 80px rgba(11,93,122,.08);
-}
-.logo{
-    width:140px;
-    margin-bottom:20px;
-    border-radius:50%;
-    background:white;
-    padding:8px;
-}
-.tag{
-    color:#76c043;
-    font-size:.9rem;
-    text-transform:uppercase;
-    letter-spacing:4px;
-    margin-bottom:15px;
-}
-h1{
-    color:white;
-    font-size:3rem;
-    font-weight:700;
-    margin-bottom:10px;
-}
-h2{
-    color:#76c043;
-    font-size:1.3rem;
-    font-weight:500;
-    margin-bottom:25px;
-}
-.message{
-    color:#d5dce3;
-    line-height:1.8;
-    max-width:650px;
-    margin:auto;
-}
-.status{
-    display:inline-block;
-    margin-top:30px;
-    padding:12px 25px;
-    border-radius:50px;
-    background:rgba(118,192,67,.15);
-    border:1px solid rgba(118,192,67,.4);
-    color:#9cff64;
-    font-weight:600;
-}
-/* Loading Bar */
-.loader{
-    width:250px;
-    height:5px;
-    background:rgba(255,255,255,.08);
-    border-radius:20px;
-    margin:35px auto;
-    overflow:hidden;
-}
-.loader span{
-    display:block;
-    height:100%;
-    width:40%;
-    background:linear-gradient(
-        90deg,
-        #76c043,
-        #0b5d7a
-    );
-    animation:loading 2s infinite;
-}
-@keyframes loading{
-    0%{
-        transform:translateX(-100%);
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- Security headers via meta tags -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self';
+             style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+             font-src 'self' https://fonts.gstatic.com;
+             img-src 'self' data:;
+             script-src 'self' 'unsafe-inline';
+             object-src 'none';
+             base-uri 'none';
+             form-action 'none';" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="Referrer-Policy" content="no-referrer" />
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <title>Sanjeevani Hospital Pokhara — Coming Soon</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-    100%{
-        transform:translateX(350%);
+
+    :root {
+      --green:       #5aac2e;
+      --green-dark:  #2e7d32;
+      --teal:        #1a5276;
+      --green-pale:  #eaf5e0;
+      --white:       #ffffff;
+      --gray-100:    #f4f6f8;
+      --gray-400:    #9ca3af;
+      --gray-700:    #374151;
+      --shadow:      0 8px 32px rgba(0,0,0,0.12);
     }
-}
-.contact{
-    margin-top:25px;
-    color:#aeb8c3;
-    font-size:.95rem;
-}
-.contact p{
-    margin:8px 0;
-}
-.footer{
-    margin-top:25px;
-    color:#7f8c99;
-    font-size:.8rem;
-}
-@media(max-width:768px){
-h1{
-    font-size:2rem;
-}
-.container{
-    padding:35px 25px;
-}
-.logo{
-    width:110px;
-}
-}
-</style>
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: linear-gradient(135deg, #eaf5e0 0%, #e0f0ea 50%, #dceef8 100%);
+      color: var(--gray-700);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 1.5rem;
+    }
+
+    /* ── Card ── */
+    .card {
+      background: var(--white);
+      border-radius: 1.5rem;
+      box-shadow: var(--shadow);
+      max-width: 520px;
+      width: 100%;
+      padding: 2.75rem 2.5rem 2.25rem;
+      text-align: center;
+    }
+
+    /* ── Logo ── */
+    .logo-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .logo-wrap img {
+      width: 130px;
+      height: 130px;
+      object-fit: contain;
+      border-radius: 50%;
+      /* subtle ring matching logo circle */
+      box-shadow: 0 0 0 3px #5aac2e33;
+      /* prevent right-click save / drag */
+      pointer-events: none;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    /* ── Typography ── */
+    .hospital-name {
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--teal);
+      letter-spacing: -0.3px;
+      line-height: 1.2;
+    }
+
+    .tagline {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--green);
+      margin-top: 0.3rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1.5px solid var(--green-pale);
+      margin: 1.6rem 0;
+    }
+
+    .headline {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--teal);
+      margin-bottom: 0.5rem;
+    }
+
+    .subtext {
+      font-size: 0.93rem;
+      color: var(--gray-400);
+      line-height: 1.7;
+    }
+
+    /* ── Under Construction badge ── */
+    .uc-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      background: var(--green-pale);
+      border: 1.5px solid #b6dfa0;
+      border-radius: 999px;
+      padding: 0.55rem 1.3rem;
+      margin: 1.75rem 0 1.5rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--teal);
+      letter-spacing: 0.04em;
+    }
+
+    .uc-badge .dot {
+      width: 10px;
+      height: 10px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: blink 1.2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.2; }
+    }
+
+    /* ── Progress bar ── */
+    .progress-wrap {
+      background: var(--green-pale);
+      border-radius: 999px;
+      height: 8px;
+      overflow: hidden;
+      margin: 1.5rem 0 0.45rem;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 65%;
+      background: linear-gradient(90deg, var(--green-dark), var(--green));
+      border-radius: 999px;
+    }
+
+    .progress-label {
+      font-size: 0.78rem;
+      color: var(--gray-400);
+      text-align: right;
+    }
+
+    /* ── Contact ── */
+    .contact-block {
+      margin-top: 1.85rem;
+      padding-top: 1.4rem;
+      border-top: 1.5px solid var(--green-pale);
+      font-size: 0.875rem;
+      color: var(--gray-400);
+    }
+
+    .contact-block strong {
+      color: var(--teal);
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-block a {
+      color: var(--green-dark);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .contact-block a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      margin-top: 0.6rem;
+    }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: 1.5rem;
+      font-size: 0.72rem;
+      color: #888;
+      text-align: center;
+    }
+
+    @media (max-width: 400px) {
+      .card { padding: 2rem 1.1rem; }
+      .hospital-name { font-size: 1.3rem; }
+      .countdown-value { font-size: 1.5rem; }
+      .logo-wrap img { width: 100px; height: 100px; }
+    }
+  </style>
 </head>
 <body>
-<div class="container">
-    <img src="sanjeevani-hospital-pokhara.jpg" class="logo" alt="Sanjeevani Hospital">
-    <div class="tag">Healthcare • Innovation • Trust</div>
-    <h1>Sanjeevani Hospital</h1>
-    <h2>Care for All</h2>
-    <p class="message">
-        Our digital experience is currently being crafted.
-        We are building a modern platform that will provide seamless access to hospital information, services, appointments, and patient care resources.
+
+  <div class="card" role="main">
+
+    <!-- Hospital logo -->
+    <div class="logo-wrap">
+      <img
+        src="sanjeevani%20hospital%20pokhara.jpg"
+        alt="Sanjeevani Hospital Pokhara Pvt. Ltd logo"
+        draggable="false"
+        oncontextmenu="return false"
+      />
+    </div>
+
+    <h1 class="hospital-name">Sanjeevani Hospital Pokhara</h1>
+    <p class="tagline">"Care for All"</p>
+
+    <hr class="divider" />
+
+    <p class="headline">We're building something great</p>
+    <p class="subtext">
+      Our new website is under construction. We'll be live soon with
+      online appointments, health records access, and much more.
     </p>
-    <div class="loader">
-        <span></span>
+
+    <!-- Under Construction badge -->
+    <div class="uc-badge" role="status" aria-label="Website under construction">
+      <span class="dot" aria-hidden="true"></span>
+      Under Construction
     </div>
-    <div class="status">
-        Website Under Construction
+
+    <!-- Progress bar -->
+    <div class="progress-wrap" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" aria-label="Site completion 65%">
+      <div class="progress-bar"></div>
     </div>
-    <div class="contact">
-        <p>📍 Pokhara, Nepal</p>
-        <p>📧 sanjeevanihospitalpokhara@gmail.com</p>
-        <p>📞 061-578161</p>
+    <p class="progress-label">65% complete</p>
+
+    <!-- Contact -->
+    <div class="contact-block">
+      <strong>Need immediate assistance?</strong>
+      <div class="contact-details">
+        <span>📍 Pokhara, Nepal</span>
+        <span>📞 <a href="tel:+97761578161">061-578161</a></span>
+        <span>📧 <a href="mailto:sanjeevanihospitalpokhara@gmail.com">sanjeevanihospitalpokhara@gmail.com</a></span>
+      </div>
     </div>
-    <div class="footer">
-        © 2026
+
+  </div>
+
+  <footer>
+    &copy; <span id="yr"></span> Sanjeevani Hospital Pokhara Pvt. Ltd. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
